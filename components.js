@@ -24,7 +24,7 @@ export function CounterSamples(props) {
   return props.children[Number(state.edited)];
 }
 
-function CounterButtonInner(props) {
+function CounterInner(props) {
   const [count, setCount] = useState(0);
 
   function increment() {
@@ -38,10 +38,10 @@ function CounterButtonInner(props) {
   );
 }
 
-export function CounterButton() {
+export function Counter() {
   const {state} = useContext(CounterContext);
   return (
-    <CounterButtonInner
+    <CounterInner
       key={!state.hot && state.edited}
       {...state}
     />

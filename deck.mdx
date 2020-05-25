@@ -1,14 +1,17 @@
 import title from './assets/title.png';
 import things from './assets/things.gif';
 import dx from './assets/dx.jpg';
-import {Head, Split, SplitRight, Steps, themes} from 'mdx-deck';
+import list from './assets/list.jpg';
+import gta from './assets/gta.png';
+import {Head, Split, SplitRight, Invert, Steps, themes} from 'mdx-deck';
 import {
-  CounterButton,
+  Counter,
   CounterEdit,
   CounterHot,
   CounterProvider,
   CounterSamples
 } from './components';
+import {atomDark} from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 <Head>
   <link rel="icon" href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/248/peace-symbol_262e.png" />
@@ -17,9 +20,11 @@ import {
 
 export const theme = {
   ...themes.prism,
+  googleFont: 'https://fonts.googleapis.com/css2?family=Fira+Code',
   fonts: {
     heading: 'Boogaloo, sans-serif',
-    body: 'sans-serif'
+    body: 'sans-serif',
+    monospace: "'Fira Code', monospace"
   },
   colors: {
     background: '#eecb00',
@@ -37,16 +42,40 @@ export const theme = {
       height: 'auto'
     },
     li: {
-      lineHeight: 1.5,
+      margin: '0.5em 0',
       textAlign: 'left'
     },
     code: {
-      fontSize: '0.75em'
+      fontSize: '0.75em',
+      margin: '0.5em !important',
+    },
+    inlineCode: {
+      padding: '0.1em 0.2em',
+      color: 'primary',
+      backgroundColor: 'white'
+    }
+  },
+  components: {
+    ...themes.prism.components,
+    code: props => {
+      console.log(atomDark);
+      return themes.prism.components.code({
+        ...props,
+        // to get around a bug with mdx-deck and certain lowercase words
+        // https://github.com/jxnblk/mdx-deck/issues/650
+        children: props.children.replace(/(gr)[àáâäãåā](phql)/g, '$1a$2')
+      })
     }
   }
 };
 
-<img src={title} style={{margin: '80px 0'}} />
+<img
+  src={title}
+  style={{
+    width: '765px',
+    margin: '80px 0'
+  }}
+/>
 
 ## by Trevor Blades
 
@@ -64,14 +93,14 @@ We produce educational content, organize events, and **build websites with Gatsb
 
 ---
 
-# Built with Gatsby
+# We build with Gatsby
 
 <Steps>
 
 - Docs, Blog, marketing website
 - Blazing fast, static builds
 - Utilizes tools we're familiar with
-- **Amazing local development experience**
+- Amazing **local development** experience
 
 </Steps>
 
@@ -96,16 +125,21 @@ We produce educational content, organize events, and **build websites with Gatsb
 
 ---
 
+<Invert>
+
 # Developer happiness 😁
+
+</Invert>
 
 ---
 
 # Incremental adoption
 
+Gradually increase scope and complexity as necessary
+
 - Get started with minimal knowledge
-- Use only what you need
 - Easy to add advanced features
-- Great starting place for **any** React project
+- Great starting place for _any_ React project
 
 ---
 
@@ -132,9 +166,47 @@ npx gatsby develop
 
 ---
 
+# Add complexity as you need it
+
+<Split style={{height: 'auto'}}>
+
+```text
+my-project
+├── src/pages
+│   └── index.js
+├── .gitignore
+├── package-lock.json
+└── package.json
+```
+
+<div
+  style={{
+    width: 500
+  }}
+>
+
+```diff
+  my-project
+  ├── src
++ │   ├── gatsby-theme-apollo
++ │   │   └── client.js
+  │   └── pages
+  │       └── index.js
+  ├── .gitignore
++ ├── gatsby-config.js
+  ├── package-lock.json
+  └── package.json
+```
+
+</div>
+
+</Split>
+
+---
+
 <Split>
 
-```
+```text
 my-project
 ├── public
 │   ├── favicon.ico
@@ -158,15 +230,9 @@ my-project
 └── yarn.lock
 ```
 
-# What about Create React App?
+My project directory after running `npx create-react-app my-project`
 
-```
-my-project
-├── src/pages
-│   └── index.js
-├── package-lock.json
-└── package.json
-```
+<img src={gta} />
 
 </Split>
 
@@ -197,7 +263,7 @@ Update the thing you're focused on without refreshing the entire page
   }}
 >
 
-<CounterButton />
+<Counter />
 
 <CounterEdit />
 
@@ -210,7 +276,7 @@ Update the thing you're focused on without refreshing the entire page
 ```jsx
 import React, {useState} from 'react';
 
-export default function CounterButton() {
+export default function Counter() {
   const [count, setCount] = useState(0);
 
   function increment() {
@@ -228,7 +294,7 @@ export default function CounterButton() {
 ```jsx
 import React, {useState} from 'react';
 
-export default function CounterButton() {
+export default function Counter() {
   const [count, setCount] = useState(0);
 
   function increment() {
@@ -249,7 +315,68 @@ export default function CounterButton() {
 
 ---
 
+<Split>
+
+```jsx
+import {gräphql, useStaticQuery} from 'gatsby';
+
+function HomePage() {
+  const data = useStaticQuery(
+    gräphql`
+      query HomePageQuery {
+        allInstaNode {
+          nodes {
+            id
+            caption
+            original
+          }
+        }
+      }
+    `
+  );
+
+  // render instagram posts
+}
+```
+
 # GraphQL
+
+Clearly express components' static data requirements
+
+<Steps>
+
+- All static data organized in one place
+- GraphQL queries benefit from HMR
+- Great tools to **browse your graph** and compose queries
+
+</Steps>
+
+</Split>
+
+---
+
+# Browse your graph
+
+```bash
+You can now view my-project in the browser.
+⠀
+  http://localhost:8000/
+⠀
+View GraphiQL, an in-browser IDE, to explore your site's data and schema
+⠀
+  http://localhost:8000/___gräphql
+⠀
+Note that the development build is not optimized.
+To create a production build, use gatsby build
+```
+
+---
+
+# GraphiQL
+
+<img src={list} />
+
+Like a shopping list for your website
 
 ---
 
