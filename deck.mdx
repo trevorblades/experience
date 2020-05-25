@@ -1,6 +1,14 @@
-import title from './assets/title.png'
-import dx from './assets/dx.jpg'
-import {Head, Split} from 'mdx-deck'
+import title from './assets/title.png';
+import things from './assets/things.gif';
+import dx from './assets/dx.jpg';
+import {Head, Split, SplitRight, Steps, themes} from 'mdx-deck';
+import {
+  CounterButton,
+  CounterEdit,
+  CounterHot,
+  CounterProvider,
+  CounterSamples
+} from './components';
 
 <Head>
   <link rel="icon" href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/248/peace-symbol_262e.png" />
@@ -8,6 +16,7 @@ import {Head, Split} from 'mdx-deck'
 </Head>
 
 export const theme = {
+  ...themes.prism,
   fonts: {
     heading: 'Boogaloo, sans-serif',
     body: 'sans-serif'
@@ -26,9 +35,16 @@ export const theme = {
     img: {
       width: 'auto',
       height: 'auto'
+    },
+    li: {
+      lineHeight: 1.5,
+      textAlign: 'left'
+    },
+    code: {
+      fontSize: '0.75em'
     }
   }
-}
+};
 
 <img src={title} style={{margin: '80px 0'}} />
 
@@ -36,13 +52,217 @@ export const theme = {
 
 ---
 
-
 <Split>
 
 <img src={dx} />
 
 # Team DX @ Apollo
 
-This is a [test](#foo)
+We produce educational content, organize events, and **build websites with Gatsby**.
 
 </Split>
+
+---
+
+# Built with Gatsby
+
+<Steps>
+
+- Docs, Blog, marketing website
+- Blazing fast, static builds
+- Utilizes tools we're familiar with
+- **Amazing local development experience**
+
+</Steps>
+
+---
+
+# Local development
+
+<Split style={{height: 'auto'}}>
+
+<Steps>
+
+- Incremental adoption of features
+- Hot reloading 🔥
+- GraphQL
+- Plugin ecosystem
+
+</Steps>
+
+<img src={things} />
+
+</Split>
+
+---
+
+# Developer happiness 😁
+
+---
+
+# Incremental adoption
+
+- Get started with minimal knowledge
+- Use only what you need
+- Easy to add advanced features
+- Great starting place for **any** React project
+
+---
+
+# Minimal knowledge
+
+```bash
+mkdir -p my-project/src/pages
+cd my-project
+npm init -y
+npm install gatsby react react-dom
+vi src/pages/index.js
+```
+
+Just write a React component:
+
+```jsx
+import React from 'react';
+export default () => <div>Hello world</div>;
+```
+
+```bash
+npx gatsby develop
+```
+
+---
+
+<Split>
+
+```
+my-project
+├── public
+│   ├── favicon.ico
+│   ├── index.html
+│   ├── logo192.png
+│   ├── logo512.png
+│   ├── manifest.json
+│   └── robots.txt
+├── src
+│   ├── App.css
+│   ├── App.js
+│   ├── App.test.js
+│   ├── index.css
+│   ├── index.js
+│   ├── logo.svg
+│   ├── serviceWorker.js
+│   └── setupTests.js
+├── .gitignore
+├── package.json
+├── README.md
+└── yarn.lock
+```
+
+# What about Create React App?
+
+```
+my-project
+├── src/pages
+│   └── index.js
+├── package-lock.json
+└── package.json
+```
+
+</Split>
+
+---
+
+# Hot module reloading
+
+Update the thing you're focused on without refreshing the entire page
+
+<Steps>
+
+- App state persists between changes
+- Maintain scroll position
+- Increases speed of iteration
+- ...and developer happiness 😁
+
+</Steps>
+
+---
+
+<CounterProvider>
+
+<div
+  style={{
+    display: 'grid',
+    gridTemplateColumns: 'repeat(3, 1fr)',
+    gridGap: '1em'
+  }}
+>
+
+<CounterButton />
+
+<CounterEdit />
+
+<CounterHot />
+
+</div>
+
+<CounterSamples>
+
+```jsx
+import React, {useState} from 'react';
+
+export default function CounterButton() {
+  const [count, setCount] = useState(0);
+
+  function increment() {
+    setCount(prevCount => prevCount + 1);
+  }
+
+  return (
+    <button onClick={increment}>
+      Clicked {count} times
+    </button>
+  );
+}
+```
+
+```jsx
+import React, {useState} from 'react';
+
+export default function CounterButton() {
+  const [count, setCount] = useState(0);
+
+  function increment() {
+    setCount(prevCount => prevCount + 1);
+  }
+
+  return (
+    <button onClick={increment}>
+      Pressed {count} times
+    </button>
+  );
+}
+```
+
+</CounterSamples>
+
+</CounterProvider>
+
+---
+
+# GraphQL
+
+---
+
+# Plugin ecosystem
+
+---
+
+# Putting it together
+
+---
+
+# Conclusion
+
+---
+
+# The end
