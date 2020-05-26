@@ -1,9 +1,18 @@
 import title from './assets/title.png';
+import happiness from './assets/happiness.png';
+import end from './assets/end.png';
 import things from './assets/things.gif';
 import graphiql from './assets/graphiql.gif';
+import wordpress from './assets/wordpress.gif';
+import pizza from './assets/pizza.gif';
 import dx from './assets/dx.jpg';
 import gta from './assets/gta.png';
-import {Head, Split, SplitRight, Invert, Steps, themes} from 'mdx-deck';
+import {
+  Split,
+  SplitRight,
+  Invert,
+  themes
+} from 'mdx-deck';
 import {
   Counter,
   CounterEdit,
@@ -11,12 +20,23 @@ import {
   CounterProvider,
   CounterSamples
 } from './components';
-import {atomDark} from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 <Head>
   <link rel="icon" href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/248/peace-symbol_262e.png" />
   <title>The DX Experience</title>
 </Head>
+
+<Footer>
+
+<div style={{display: 'flex'}}>
+
+<h1>The DX Experience</h1>
+
+<h1 style={{marginLeft: 'auto'}}>@trevorblades</h1>
+
+</div>
+
+</Footer>
 
 export const theme = {
   ...themes.prism,
@@ -58,7 +78,6 @@ export const theme = {
   components: {
     ...themes.prism.components,
     code: props => {
-      console.log(atomDark);
       return themes.prism.components.code({
         ...props,
         // to get around a bug with mdx-deck and certain lowercase words
@@ -72,7 +91,7 @@ export const theme = {
 <img
   src={title}
   style={{
-    width: '765px',
+    width: 765,
     margin: '80px 0'
   }}
 />
@@ -112,10 +131,10 @@ We produce educational content, organize events, and **build websites with Gatsb
 
 <Steps>
 
-- Incremental adoption of features
-- Hot reloading 🔥
+- Incremental adoption
+- Hot module reloading 🔥
 - GraphQL
-- Plugin ecosystem
+- Plugins for local development
 
 </Steps>
 
@@ -127,7 +146,7 @@ We produce educational content, organize events, and **build websites with Gatsb
 
 <Invert>
 
-# Developer happiness 😁
+<img src={happiness} style={{width: 689}} />
 
 </Invert>
 
@@ -238,7 +257,7 @@ My project directory after running `npx create-react-app my-project`
 
 ---
 
-# Hot module reloading
+# Hot module reloading 🔥
 
 Update the thing you're focused on without refreshing the entire page
 
@@ -372,19 +391,45 @@ To create a production build, use gatsby build
 
 ---
 
+<img src={pizza} style={{height: 700}} />
+
+---
+
 # GraphiQL
 
-<img src={graphiql} style={{height: 600}} />
+<img src={graphiql} />
 
-Like a dim sum menu for your website 🥟
-
----
-
-# Plugin ecosystem
+Build queries like you build a pizza 🍕
 
 ---
 
-# Putting it together
+# Plugins for local development
+
+Incrementally improve your development environment
+
+<Steps>
+
+- Check for broken links in Markdown: `gatsby-remark-check-links`
+- Publicly accessible local dev URL: `gatsby-plugin-ngrok-tunneling`
+- **Hot reloading content from Wordpress**: `gatsby-source-wordpress-experimental`
+
+</Steps>
+
+---
+
+# Hot reloading content from Wordpress
+
+<img src={wordpress} />
+
+`gatsby-source-wordpress-experimental`
+
+---
+
+<Invert>
+
+<img src={happiness} style={{width: 689}} />
+
+</Invert>
 
 ---
 
@@ -392,4 +437,6 @@ Like a dim sum menu for your website 🥟
 
 ---
 
-# The end
+<img src={end} style={{marginBottom: 40}} />
+
+## experience.trevorblades.com
