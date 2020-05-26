@@ -303,7 +303,7 @@ export default function Counter() {
 
   return (
     <button onClick={increment}>
-      Clicked {count} times
+      Clicked {count} times {count > 5 && '🐶'}
     </button>
   );
 }
@@ -321,7 +321,7 @@ export default function Counter() {
 
   return (
     <button onClick={increment}>
-      Pressed {count} times
+      Clicked {count} times {count > 5 && '🦎'}
     </button>
   );
 }

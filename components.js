@@ -33,7 +33,7 @@ function CounterInner(props) {
 
   return (
     <button onClick={increment} style={{ fontSize: '1em' }}>
-      {props.edited ? 'Pressed' : 'Clicked'} {count} times
+      Clicked {count} times {count > 5 && (props.edited ? '🦎' : '🐶')}
     </button>
   );
 }
