@@ -131,9 +131,9 @@ We produce educational content, organize events, and **build websites with Gatsb
 
 <Steps>
 
-- Incremental adoption
+{/* - Incremental adoption */}
 - Hot module reloading 🔥
-- GraphQL
+- GraphQL as a data layer
 - Plugins for local development
 
 </Steps>
@@ -152,7 +152,7 @@ We produce educational content, organize events, and **build websites with Gatsb
 
 ---
 
-# Incremental adoption
+<!-- # Incremental adoption
 
 Gradually increase scope and complexity as necessary
 
@@ -182,6 +182,40 @@ export default () => <div>Hello world</div>;
 ```bash
 npx gatsby develop
 ```
+
+---
+
+<Split>
+
+```text
+my-project
+├── public
+│   ├── favicon.ico
+│   ├── index.html
+│   ├── logo192.png
+│   ├── logo512.png
+│   ├── manifest.json
+│   └── robots.txt
+├── src
+│   ├── App.css
+│   ├── App.js
+│   ├── App.test.js
+│   ├── index.css
+│   ├── index.js
+│   ├── logo.svg
+│   ├── serviceWorker.js
+│   └── setupTests.js
+├── .gitignore
+├── package.json
+├── README.md
+└── yarn.lock
+```
+
+My project directory after running `npx create-react-app my-project`
+
+<img src={gta} />
+
+</Split>
 
 ---
 
@@ -221,41 +255,7 @@ my-project
 
 </Split>
 
----
-
-<Split>
-
-```text
-my-project
-├── public
-│   ├── favicon.ico
-│   ├── index.html
-│   ├── logo192.png
-│   ├── logo512.png
-│   ├── manifest.json
-│   └── robots.txt
-├── src
-│   ├── App.css
-│   ├── App.js
-│   ├── App.test.js
-│   ├── index.css
-│   ├── index.js
-│   ├── logo.svg
-│   ├── serviceWorker.js
-│   └── setupTests.js
-├── .gitignore
-├── package.json
-├── README.md
-└── yarn.lock
-```
-
-My project directory after running `npx create-react-app my-project`
-
-<img src={gta} />
-
-</Split>
-
----
+--- -->
 
 # Hot module reloading 🔥
 
@@ -266,7 +266,6 @@ Update the thing you're focused on without refreshing the entire page
 - App state persists between changes
 - Maintain scroll position
 - Increases speed of iteration
-- ...and developer happiness 😁
 
 </Steps>
 
@@ -405,13 +404,14 @@ Build queries like you build a pizza 🍕
 
 # Plugins for local development
 
-Incrementally improve your development environment
+Add value to your development environment
 
 <Steps>
 
 - Check for broken links in Markdown: `gatsby-remark-check-links`
 - Publicly accessible local dev URL: `gatsby-plugin-ngrok-tunneling`
 - **Hot reloading content from Wordpress**: `gatsby-source-wordpress-experimental`
+- And many more...
 
 </Steps>
 
@@ -435,9 +435,9 @@ Incrementally improve your development environment
 
 # Blazing fast local development
 
-- Incremental adoption
+<!-- - Incremental adoption -->
 - Hot module reloading 🔥
-- GraphQL
+- GraphQL as a data layer
 - Plugins for local development
 
 ---
