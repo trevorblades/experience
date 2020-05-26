@@ -18,8 +18,10 @@ import {
   CounterEdit,
   CounterHot,
   CounterProvider,
-  CounterSamples
+  CounterSamples,
+  FooterContent
 } from './components';
+import {Grid} from 'theme-ui';
 
 <Head>
   <link rel="icon" href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/248/peace-symbol_262e.png" />
@@ -27,15 +29,7 @@ import {
 </Head>
 
 <Footer>
-
-<div style={{display: 'flex'}}>
-
-<h1>The DX Experience</h1>
-
-<h1 style={{marginLeft: 'auto'}}>@trevorblades</h1>
-
-</div>
-
+  <FooterContent />
 </Footer>
 
 export const theme = {
@@ -273,13 +267,7 @@ Update the thing you're focused on without refreshing the entire page
 
 <CounterProvider>
 
-<div
-  style={{
-    display: 'grid',
-    gridTemplateColumns: 'repeat(3, 1fr)',
-    gridGap: '1em'
-  }}
->
+<Grid columns={3} gap="1em">
 
 <Counter />
 
@@ -287,7 +275,7 @@ Update the thing you're focused on without refreshing the entire page
 
 <CounterHot />
 
-</div>
+</Grid>
 
 <CounterSamples>
 

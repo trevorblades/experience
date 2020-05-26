@@ -1,4 +1,7 @@
-import React, {useState, useContext, createContext} from 'react';
+/** @jsx jsx */
+import {useState, useContext, createContext} from 'react';
+import {Footer, useDeck} from 'mdx-deck';
+import {jsx} from 'theme-ui';
 
 const CounterContext = createContext();
 
@@ -78,7 +81,7 @@ export function CounterHot() {
   return (
     <button
       onClick={toggleHot}
-      style={{
+      sx={{
         fontSize: '1em',
         color: 'white',
         backgroundColor: state.hot ? 'green' : 'red'
@@ -87,4 +90,21 @@ export function CounterHot() {
       HMR is {state.hot ? 'ON' : 'OFF'}
     </button>
   );
+}
+
+export function FooterContent() {
+  const deck = useDeck();
+  return deck.index ? (
+    <h2 sx={{display: 'flex'}}>
+      <span
+        sx={{
+          fontFamily: 'heading',
+          textTransform: 'uppercase'
+        }}
+      >
+        The DX Experience
+      </span>
+      <span sx={{ml: 'auto'}}>@trevorblades</span>
+    </h2>
+  ) : null;
 }
