@@ -94,7 +94,7 @@ export function CounterHot() {
 
 export function FooterContent() {
   const deck = useDeck();
-  return deck.index ? (
+  return deck.index > 2 ? (
     <h2 sx={{display: 'flex'}}>
       <span
         sx={{

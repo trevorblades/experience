@@ -1,6 +1,11 @@
 import title from './assets/title.png';
 import happiness from './assets/happiness.png';
 import end from './assets/end.png';
+import output from './assets/output.png';
+import marketing from './assets/marketing.jpg';
+import docs from './assets/docs.jpg';
+import blog from './assets/blog.jpg';
+import summit from './assets/summit.jpg';
 import things from './assets/things.gif';
 import graphiql from './assets/graphiql.gif';
 import wordpress from './assets/wordpress.gif';
@@ -11,6 +16,7 @@ import {
   Split,
   SplitRight,
   Invert,
+  Image,
   themes
 } from 'mdx-deck';
 import {
@@ -52,6 +58,7 @@ export const theme = {
   },
   styles: {
     img: {
+      display: 'block',
       width: 'auto',
       height: 'auto'
     },
@@ -106,11 +113,30 @@ We produce educational content, organize events, and **build websites with Gatsb
 
 ---
 
-# We build with Gatsby
+<Steps>
+
+<Horizontal>
+
+<img src={marketing} />
+<img src={docs} />
+
+</Horizontal>
+
+<Horizontal>
+
+<img src={blog} />
+<img src={summit} />
+
+</Horizontal>
+
+</Steps>
+
+---
+
+# Why we build with Gatsby
 
 <Steps>
 
-- Docs, Blog, marketing website
 - Blazing fast, static builds
 - Utilizes tools we're familiar with
 - Amazing **local development** experience
@@ -119,7 +145,7 @@ We produce educational content, organize events, and **build websites with Gatsb
 
 ---
 
-# Local development
+# Local development is groovy ☮️
 
 <Split style={{height: 'auto'}}>
 
@@ -329,19 +355,20 @@ import {gräphql, useStaticQuery} from 'gatsby';
 function HomePage() {
   const data = useStaticQuery(
     gräphql`
-      query HomePageQuery {
-        allInstaNode {
+      query ListPosts {
+        allWpPost {
           nodes {
             id
-            caption
-            original
+            date
+            title
+            excerpt
           }
         }
       }
     `
   );
 
-  // render instagram posts
+  // render wordpress posts
 }
 ```
 
@@ -396,12 +423,21 @@ Add value to your development environment
 
 <Steps>
 
-- Check for broken links in Markdown: `gatsby-remark-check-links`
 - Publicly accessible local dev URL: `gatsby-plugin-ngrok-tunneling`
-- **Hot reloading content from Wordpress**: `gatsby-source-wordpress-experimental`
-- And many more...
+- Check for broken links in Markdown: `gatsby-remark-check-links`
+- Hot reloading content from Wordpress: `gatsby-source-wordpress-experimental`
 
 </Steps>
+
+---
+
+# Check for broken links in Markdown
+
+**Statically** analyze Markdown links during the build phase
+
+<img src={output} />
+
+`gatsby-remark-check-links`
 
 ---
 
@@ -410,6 +446,12 @@ Add value to your development environment
 <img src={wordpress} />
 
 `gatsby-source-wordpress-experimental`
+
+---
+
+# ...and many more?
+
+Let me know! 🗣
 
 ---
 
